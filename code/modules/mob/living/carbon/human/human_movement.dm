@@ -31,8 +31,12 @@
 	if(hunger_deficiency >= 200) tally += (hunger_deficiency / 100) //If youre starving, movement slowdown can be anything up to 4.
 
 	if(istype(buckled, /obj/structure/bed/chair/wheelchair))
-		//Not porting bay's silly organ checking code here
-		tally += 1 //Small slowdown so wheelchairs aren't turbospeed
+		for(var/organ_name in list(BP_L_HAND, BP_R_HAND, BP_L_ARM, BP_R_ARM))
+			var/obj/item/organ/external/E = get_organ(organ_name)
+			if(!E)
+				tally += 4
+			else
+				tally += E.get_tally()
 	else
 		if(wear_suit)
 			tally += wear_suit.slowdown
@@ -91,3 +95,7 @@
 	if(shoes && (shoes.item_flags & NOSLIP) && istype(shoes, /obj/item/clothing/shoes/magboots))  //magboots + dense_object = no floating
 		return 1
 	return 0
+/*
+/mob/living/carbon/human/handle_footstep(atom/T)
+	if(..())
+*/

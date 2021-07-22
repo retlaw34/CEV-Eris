@@ -1,23 +1,50 @@
+//these aren't defines so they can stay in this file
+var/const/RESIZE_HUGE = 1.5
+var/const/RESIZE_BIG = 1.25
+var/const/RESIZE_NORMAL = 1
+var/const/RESIZE_SMALL = 0.75
+var/const/RESIZE_TINY = 0.5
+//Eclipse edits ^^^^ Size
+//average
+var/const/RESIZE_A_HUGEBIG = (RESIZE_HUGE + RESIZE_BIG) / 2
+var/const/RESIZE_A_BIGNORMAL = (RESIZE_BIG + RESIZE_NORMAL) / 2
+var/const/RESIZE_A_NORMALSMALL = (RESIZE_NORMAL + RESIZE_SMALL) / 2
+var/const/RESIZE_A_SMALLTINY = (RESIZE_SMALL + RESIZE_TINY) / 2
+
+
+
 /mob/living/carbon/human
 	//first and last name
 	var/first_name
 	var/last_name
 
 	//Hair colour and style
-	var/hair_color = "#000000"
+	var/r_hair = 0
+	var/g_hair = 0
+	var/b_hair = 0
 	var/h_style = "Bald"
 
 	//Facial hair colour and style
-	var/facial_color = "#000000"
+	var/r_facial = 0
+	var/g_facial = 0
+	var/b_facial = 0
 	var/f_style = "Shaved"
 
+	var/wagging = 0 //UGH.
+
 	//Eye colour
-	var/eyes_color = "#000000"
+	var/r_eyes = 0
+	var/g_eyes = 0
+	var/b_eyes = 0
 
 	var/s_tone = 0	//Skin tone
+	var/s_base = "" //Skin base
+
 
 	//Skin colour
-	var/skin_color = "#000000"
+	var/r_skin = 0
+	var/g_skin = 0
+	var/b_skin = 0
 
 	var/size_multiplier = 1 //multiplier for the mob's icon size
 	var/damage_multiplier = 1 //multiplies melee combat damage
@@ -61,6 +88,7 @@
 	var/list/bad_external_organs = list()// organs we check until they are good.
 
 	var/xylophone = 0 //For the spoooooooky xylophone cooldown
+	var/flapping = 0
 
 	var/mob/remoteview_target
 	var/remoteviewer = FALSE //Acts as an override for remoteview_target viewing, see human/life.dm: handle_vision()

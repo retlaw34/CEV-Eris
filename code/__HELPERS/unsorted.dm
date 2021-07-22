@@ -1010,10 +1010,20 @@ GLOBAL_LIST_INIT(duplicate_forbidden_vars,list(
 			return "left arm"
 		if(BP_R_ARM)
 			return "right arm"
+		if(BP_R_HAND)
+			return "right hand"
+		if(BP_L_HAND)
+			return "left hand"
+
 		if(BP_L_LEG )
 			return "left leg"
 		if(BP_R_LEG)
 			return "right leg"
+		if(BP_L_FOOT)
+			return "left foot"
+		if(BP_R_FOOT)
+			return "right foot"
+
 		else
 			return zone
 

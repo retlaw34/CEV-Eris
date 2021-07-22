@@ -18,6 +18,10 @@
 	spawn_tags = SPAWN_TAG_ORGAN_EXTERNAL
 	var/tally = 0
 
+	var/list/s_col                     // skin colour
+	var/s_col_blend = ICON_ADD         // How the skin colour is applied.
+	var/list/h_col                     // hair colour
+
 	// Strings
 	var/damage_state = "00"				// Modifier used for generating the on-mob damage overlay for this limb.
 	var/damage_msg = "\red You feel an intense pain"
@@ -38,8 +42,6 @@
 	var/force_icon			// Used to force override of species-specific limb icons (for prosthetics).
 	var/icon/mob_icon                  // Cached icon for use in mob overlays.
 	var/skin_tone			// Skin tone.
-	var/skin_col			// skin colour
-	var/hair_col
 
 	// Wound and structural data.
 	var/wound_update_accuracy = 1		// how often wounds should be updated, a higher number means less often
@@ -71,6 +73,8 @@
 
 	var/cavity_name = "cavity"				// Name of body part's cavity, displayed during cavity implant surgery
 	var/max_volume = ITEM_SIZE_SMALL	// Max w_class of cavity implanted items
+
+	var/gendered = FALSE
 
 	// Surgery vars.
 	var/open = 0
