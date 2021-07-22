@@ -112,7 +112,6 @@ ADMIN_VERB_ADD(/datum/admins/proc/show_player_panel, null, TRUE)
 		body += " played by <b><a href='http://byond.com/members/[M.client.ckey]'>[M.client]</b></a> "
 		body += "\[<A href='?src=\ref[src];editrights=show'>[M.client.holder ? M.client.holder.rank : "Player"]</A>\]<br>"
 		body += "<b>Registration date:</b> [M.client.registration_date ? M.client.registration_date : "Unknown"]<br>"
-		body += "<b>IP:</b> [M.client.address ? M.client.address : "Unknown"]<br>"
 
 		var/country = M.client.country
 		var/country_code = M.client.country_code
